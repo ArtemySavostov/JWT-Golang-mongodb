@@ -1,4 +1,4 @@
-module JWT
+module github.com/ArtemySavostov/JWT-Golang-mongodb
 
 go 1.23.6
 
