@@ -63,7 +63,7 @@ func (uc *authUseCase) Login(ctx context.Context, username, password string) (st
 		return "", errors.New("invalid credentials")
 	}
 
-	token, err := uc.GenerateToken(username, user.ID.Hex()) // Исправлено: используем uc.GenerateToken
+	token, err := uc.GenerateToken(username, user.ID.Hex())
 	if err != nil {
 		return "", fmt.Errorf("could not generate token: %w", err)
 	}
@@ -80,7 +80,7 @@ func (uc *authUseCase) ValidateToken(token string) (string, error) {
 	return userID, nil
 }
 
-func (uc *authUseCase) GenerateToken(username string, userID string) (string, error) { // Исправлено: реализация GenerateToken
+func (uc *authUseCase) GenerateToken(username string, userID string) (string, error) {
 	token, err := auth.GenerateToken(username, userID)
 	if err != nil {
 		return "", fmt.Errorf("could not generate token: %w", err)
@@ -89,7 +89,7 @@ func (uc *authUseCase) GenerateToken(username string, userID string) (string, er
 	return token, nil
 }
 
-func (uc *authUseCase) CheckPasswordHash(password string, hashedPassword string) bool { // Исправлено: реализация CheckPasswordHash
+func (uc *authUseCase) CheckPasswordHash(password string, hashedPassword string) bool {
 	err := bcrypt.CompareHashAndPassword([]byte(hashedPassword), []byte(password))
 	return err == nil
 }
