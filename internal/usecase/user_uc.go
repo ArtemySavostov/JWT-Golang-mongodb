@@ -1,11 +1,12 @@
 package usecase
 
 import (
-	"JWT/internal/entity"
-	"JWT/internal/repository"
 	"context"
 	"errors"
 	"fmt"
+
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/entity"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/repository"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"golang.org/x/crypto/bcrypt"

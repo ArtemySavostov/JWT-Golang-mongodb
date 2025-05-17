@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"strings"
 
-	"JWT/pkg/auth"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/pkg/auth"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,13 +25,14 @@ func AuthMiddleware() gin.HandlerFunc {
 		}
 
 		token := parts[1]
-		username, userID, err := auth.ValidateToken(token)
+		username, userID, role, err := auth.ValidateToken(token)
 		if err != nil {
 			log.Printf("Invalid token: %v", err)
 			c.AbortWithStatusJSON(http.StatusUnauthorized, gin.H{"error": "invalid token"})
 			return
 		}
 		log.Printf("Username from token: %s", username)
+		c.Set("role", role)
 		c.Set("username", username)
 		c.Set("userID", userID)
 		c.Next()

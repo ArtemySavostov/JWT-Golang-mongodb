@@ -6,8 +6,8 @@ import (
 	"log"
 	"time"
 
-	"JWT/internal/entity"
-	"JWT/internal/repository"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/entity"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/repository"
 
 	"errors"
 

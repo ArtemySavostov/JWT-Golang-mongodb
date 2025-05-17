@@ -1,8 +1,9 @@
 package repository
 
 import (
-	"JWT/internal/entity"
 	"context"
+
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/entity"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )

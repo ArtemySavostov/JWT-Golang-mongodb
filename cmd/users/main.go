@@ -7,12 +7,12 @@ import (
 	"net/http"
 	"os"
 
-	"JWT/internal/app"
-	"JWT/internal/delivery/gin"
-	"JWT/internal/delivery/gin/handlers"
-	"JWT/internal/usecase"
-	"JWT/pkg/database"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/app"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/delivery/gin/handlers"
 
+	//"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/delivery/gin/handlers"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/usecase"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/pkg/database"
 	"github.com/joho/godotenv"
 	"github.com/rs/cors"
 )
@@ -44,7 +44,7 @@ func main() {
 	userHandler := handlers.NewUserHandler(userUC)
 	authHandler := handlers.NewAuthHandler(authUC)
 
-	router := gin.SetupRouter(authHandler, userHandler)
+	router := handlers.SetupRouter(authHandler, userHandler)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"http://localhost:3000"},

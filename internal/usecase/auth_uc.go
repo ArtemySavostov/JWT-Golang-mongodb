@@ -1,12 +1,13 @@
 package usecase
 
 import (
-	"JWT/internal/entity"
-	"JWT/internal/repository"
-	"JWT/pkg/auth"
 	"context"
 	"errors"
 	"fmt"
+
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/entity"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/repository"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/pkg/auth"
 
 	"golang.org/x/crypto/bcrypt"
 )
@@ -72,7 +73,7 @@ func (uc *authUseCase) Login(ctx context.Context, username, password string) (st
 }
 
 func (uc *authUseCase) ValidateToken(token string) (string, error) {
-	_, userID, err := auth.ValidateToken(token)
+	_, _, userID, err := auth.ValidateToken(token)
 	if err != nil {
 		return "", fmt.Errorf("invalid token: %w", err)
 	}

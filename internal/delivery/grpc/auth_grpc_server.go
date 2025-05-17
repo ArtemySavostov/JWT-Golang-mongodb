@@ -8,8 +8,8 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
 
-	pb "JWT/internal/grpc"
-	"JWT/internal/usecase"
+	pb "github.com/ArtemySavostov/JWT-Golang-mongodb/internal/grpc"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/usecase"
 )
 
 type AuthGrpcServer struct {

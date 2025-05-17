@@ -5,7 +5,7 @@ import (
 
 	"net/http"
 
-	"JWT/internal/usecase"
+	"github.com/ArtemySavostov/JWT-Golang-mongodb/internal/usecase"
 
 	"github.com/gin-gonic/gin"
 )
